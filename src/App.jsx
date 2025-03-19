@@ -16,12 +16,12 @@ function Header() {
   );
 }
 
-function MainContent(props){
+function MainContent({image,title,desc}){
   return(
     <li>
-      <img src={props.image} alt={props.title} />
-      <h2>{props.title}</h2>
-      <p>{props.desc}</p>
+      <img src={image} alt={title} />
+      <h2>{title}</h2>
+      <p>{desc}</p>
     </li>
   )
 }
@@ -40,26 +40,11 @@ function App() {
         <section id="core-concepts">
           <h2>Key Concepts in React</h2>
           <ul>
-            <MainContent
-            image ={myData[0].image}
-            title = {myData[0].title}
-            desc = {myData[0].desc}
-            />
-            <MainContent
-            image ={myData[1].image}
-            title = {myData[1].title}
-            desc = {myData[1].desc}
-            />
-            <MainContent
-            image ={myData[2].image}
-            title = {myData[2].title}
-            desc = {myData[2].desc}
-            />
-            <MainContent
-            image ={myData[3].image}
-            title = {myData[3].title}
-            desc = {myData[3].desc}
-            />
+            <MainContent {...myData[0]}/>
+            <MainContent {...myData[1]}/>
+            <MainContent {...myData[2]}/>
+            <MainContent {...myData[3]}/>
+            
           </ul>
         </section>
       </main>
