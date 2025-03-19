@@ -1,10 +1,6 @@
 import PropTypes from "prop-types";
 import logo from "./assets/logo-tuhoc.png";
-
-import pic1 from "./assets/pic1.png"
-import pic2 from "./assets/pic2.png"
-import pic3 from "./assets/pic3.png"
-import pic4 from "./assets/pic4.png"
+import {myData } from "../data"
 
 function Header() {
   return (
@@ -45,24 +41,24 @@ function App() {
           <h2>Key Concepts in React</h2>
           <ul>
             <MainContent
-            image ={pic1}
-            title = "Components"
-            desc = "Basic UI building blocks – combining multiple components to create an application."
+            image ={myData[0].image}
+            title = {myData[0].title}
+            desc = {myData[0].desc}
             />
             <MainContent
-            image ={pic2}
-            title = "JSX"
-            desc = "Combine HTML and JavaScript to create dynamic and powerful user interfaces."
+            image ={myData[1].image}
+            title = {myData[1].title}
+            desc = {myData[1].desc}
             />
             <MainContent
-            image ={pic3}
-            title = "Props"
-            desc = "Basic UI building blocks – combining multiple components to create an application."
+            image ={myData[2].image}
+            title = {myData[2].title}
+            desc = {myData[2].desc}
             />
             <MainContent
-            image ={pic4}
-            title = "Components"
-            desc = "Basic UI building blocks – combining multiple components to create an application."
+            image ={myData[3].image}
+            title = {myData[3].title}
+            desc = {myData[3].desc}
             />
           </ul>
         </section>
