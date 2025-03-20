@@ -9,7 +9,24 @@ import TabButton from "./components/TabButton";
 function App() {
   // Create a state variable 'selectedTopic' and a function 'setSelectedTopic' to update it
   // Initialize with "components" as the default value
-  const [selectedTopic, setSelectedTopic]= useState("components");
+  const [selectedTopic, setSelectedTopic]= useState();
+
+  // Initialize tabContent variable with a default value of a text paragraph
+  let tabContent = <p>Please click the button to select a topic</p>;
+  // Check if `selectedTopic` has a value (i.e. the user has selected a topic)
+  if(selectedTopic) {
+    tabContent = (
+      <div id="tab-content">
+            <h3>{EXAMPLES[selectedTopic].title}</h3>
+            <p>{EXAMPLES[selectedTopic].desc}</p>
+            <pre>
+              <code>
+              {EXAMPLES[selectedTopic].code}
+              </code>
+            </pre>
+          </div>
+    )
+  }
 
   // Function to handle button clicks and update 'selectedTopic' with the selected topic
   function handleSelect (selectedButton){
@@ -44,7 +61,10 @@ function App() {
           </menu>
 
           {/* Display content based on the selected topic */}
-          <div id="tab-content">
+
+          {/* 1.Use truthy falsy to display content */}
+          {/* {selectedTopic? (
+            <div id="tab-content">
             <h3>{EXAMPLES[selectedTopic].title}</h3>
             <p>{EXAMPLES[selectedTopic].desc}</p>
             <pre>
@@ -53,6 +73,26 @@ function App() {
               </code>
             </pre>
           </div>
+          ) :
+          <p>Please click the button to select a topic</p>
+          } */}
+
+          {/* 2.Use ternary to display content */}
+          {/* {!selectedTopic && <p>Please click the button to select a topic</p>}
+          {selectedTopic && (
+            <div id="tab-content">
+            <h3>{EXAMPLES[selectedTopic].title}</h3>
+            <p>{EXAMPLES[selectedTopic].desc}</p>
+            <pre>
+              <code>
+              {EXAMPLES[selectedTopic].code}
+              </code>
+            </pre>
+          </div>
+          )} */}
+
+          {/* 3.declare separate variables */}
+          {tabContent}
         </section>
       </main>
     </>
