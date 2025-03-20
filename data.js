@@ -25,3 +25,67 @@ export const myData = [
     desc: "Data managed by React automatically updates the UI when changed.",
   },
 ];
+export const EXAMPLES = {
+  components: {
+    title: "Components",
+    desc: "Components are reusable UI blocks in React. They are designed to be independent and can be combined flexibly.",
+    code: `
+    function Greeting() {
+      return (
+        <div>
+          <h1>Hello!</h1>
+          <p>Welcome to React.</p>
+        </div>
+      );
+    }
+    `,
+  },
+  jsx: {
+    title: "JSX",
+    desc: "JSX allows for more readable UI code by using HTML-like syntax. It helps in building the UI quickly and efficiently.",
+    code: `
+    function Introduction() {
+      return (
+        <div>
+          <h2>Introduction about React</h2>
+          <p>React helps create modern and maintainable user interfaces.</p>
+        </div>
+      );
+    }
+    `,
+  },
+  props: {
+    title: "Props",
+    desc: "Props are a way to pass data between components in React. They make the UI customizable and flexible.",
+    code: `
+    function Profile({ name, age }) {
+      return (
+        <div>
+          <h3>Profile</h3>
+          <p>Name: {name}</p>
+          <p>Age: {age}</p>
+        </div>
+      );
+    }
+    `,
+  },
+  state: {
+    title: "State",
+    desc: "State allows components to manage dynamic data. It helps the UI respond flexibly to changes.",
+    code: `
+    function Switch() {
+      const [on, setOn] = React.useState(false);
+
+      function handleClick() {
+        setOn((on) => !on);
+      }
+
+      return (
+        <button onClick={handleClick}>
+          {on ? 'On' : 'Off'}
+        </button>
+      );
+    }
+    `,
+  },
+};
