@@ -5,6 +5,7 @@ import MainContent from "./components/MainContent/MainContent";
 // Import data and example content from an external file
 import {myData, EXAMPLES } from "../data"
 import TabButton from "./components/TabButton";
+import Section from "./components/MainContent/Section";
 
 function App() {
   // Create a state variable 'selectedTopic' and a function 'setSelectedTopic' to update it
@@ -37,8 +38,7 @@ function App() {
       {/* Render the Header component */}
       <Header />
       <main>
-        <section id="core-concepts">
-          <h2>Key Concepts in React</h2>
+        <Section title="Key Concepts in React" id="core-concepts">
           <ul>
             {/* Render the MainContent component and pass data using the spread operator */}
             {/* <MainContent {...myData[0]}/>
@@ -49,11 +49,9 @@ function App() {
               <MainContent key={item.title} {...item}/>
             ))}
           </ul>
-        </section>
+        </Section>
         {/* Section displaying example topics */}
-        <section id="examples">
-          <h2>Examples</h2>
-
+        <Section title="Examples" id="examples">
           {/* Menu with buttons to select different topics */}
           <menu>
             {/* Each button calls the handleSelect function with the corresponding topic */}
@@ -100,7 +98,7 @@ function App() {
 
           {/* 3.declare separate variables */}
           {tabContent}
-        </section>
+        </Section>
       </main>
     </>
   );
