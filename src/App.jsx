@@ -41,10 +41,13 @@ function App() {
           <h2>Key Concepts in React</h2>
           <ul>
             {/* Render the MainContent component and pass data using the spread operator */}
-            <MainContent {...myData[0]}/>
+            {/* <MainContent {...myData[0]}/>
             <MainContent {...myData[1]}/>
             <MainContent {...myData[2]}/>
-            <MainContent {...myData[3]}/>
+            <MainContent {...myData[3]}/> */}
+            {myData.map((item)=> (
+              <MainContent key={item.title} {...item}/>
+            ))}
           </ul>
         </section>
         {/* Section displaying example topics */}
@@ -54,10 +57,14 @@ function App() {
           {/* Menu with buttons to select different topics */}
           <menu>
             {/* Each button calls the handleSelect function with the corresponding topic */}
-            <TabButton onSelect={()=>{handleSelect("components")}}>Components</TabButton>
-            <TabButton onSelect={()=>{handleSelect("jsx")}}>JSX</TabButton>
-            <TabButton onSelect={()=>{handleSelect("props")}}>Props</TabButton>
-            <TabButton onSelect={()=>{handleSelect("state")}}>State</TabButton>
+            <TabButton
+              isSelected={selectedTopic==="components"} onSelect={()=>{handleSelect("components")}}>Components</TabButton>
+            <TabButton
+              isSelected={selectedTopic==="jsx"} onSelect={()=>{handleSelect("jsx")}}>JSX</TabButton>
+            <TabButton
+              isSelected={selectedTopic==="props"} onSelect={()=>{handleSelect("props")}}>Props</TabButton>
+            <TabButton
+              isSelected={selectedTopic==="state"} onSelect={()=>{handleSelect("state")}}>State</TabButton>
           </menu>
 
           {/* Display content based on the selected topic */}

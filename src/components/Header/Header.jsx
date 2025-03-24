@@ -1,4 +1,4 @@
-import logo from "../../assets/logo-tuhoc.png";
+import logo from "../../assets/Logo-CodeLab.png";
 import "./Header.css"
 function Header() {
   return (
