@@ -1,6 +1,5 @@
 import PropTypes from "prop-types"
-export default function Tabs ({button, children, buttonContainer}){
-    const ButtonContainer = buttonContainer
+export default function Tabs ({button, children, ButtonContainer}){
     return(
         <>
             <ButtonContainer>{button}
@@ -12,5 +11,5 @@ export default function Tabs ({button, children, buttonContainer}){
 Tabs.propTypes = {
     button: PropTypes.node,
     children: PropTypes.node,
-    buttonContainer: PropTypes.elementType
+    ButtonContainer: PropTypes.elementType
 }

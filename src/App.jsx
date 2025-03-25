@@ -50,7 +50,7 @@ function App() {
         <Section title="Examples" id="examples">
           {/* Menu with buttons to select different topics */}
           <Tabs
-          buttonContainer="menu" button={
+          ButtonContainer="menu" button={
             <>
             <TabButton
             isSelected={selectedTopic==="components"} onClick={()=>{handleSelect("components")}}>Components</TabButton>
