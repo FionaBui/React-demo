@@ -6,6 +6,7 @@ import MainContent from "./components/MainContent/MainContent";
 import {myData, EXAMPLES } from "../data"
 import TabButton from "./components/TabButton";
 import Section from "./components/MainContent/Section";
+import Tabs from "./components/MainContent/Tabs";
 
 function App() {
   // Create a state variable 'selectedTopic' and a function 'setSelectedTopic' to update it
@@ -40,11 +41,6 @@ function App() {
       <main>
         <Section title="Key Concepts in React" id="core-concepts">
           <ul>
-            {/* Render the MainContent component and pass data using the spread operator */}
-            {/* <MainContent {...myData[0]}/>
-            <MainContent {...myData[1]}/>
-            <MainContent {...myData[2]}/>
-            <MainContent {...myData[3]}/> */}
             {myData.map((item)=> (
               <MainContent key={item.title} {...item}/>
             ))}
@@ -53,53 +49,26 @@ function App() {
         {/* Section displaying example topics */}
         <Section title="Examples" id="examples">
           {/* Menu with buttons to select different topics */}
-          <menu>
-            {/* Each button calls the handleSelect function with the corresponding topic */}
+          <Tabs button={
+            <>
             <TabButton
-              isSelected={selectedTopic==="components"} onClick={()=>{handleSelect("components")}}>Components</TabButton>
-            <TabButton
-              isSelected={selectedTopic==="jsx"} onClick={()=>{handleSelect("jsx")}}>JSX</TabButton>
-            <TabButton
-              isSelected={selectedTopic==="props"} onClick={()=>{handleSelect("props")}}>Props</TabButton>
-            <TabButton
-              isSelected={selectedTopic==="state"} onClick={()=>{handleSelect("state")}}>State</TabButton>
-          </menu>
+            isSelected={selectedTopic==="components"} onClick={()=>{handleSelect("components")}}>Components</TabButton>
+          <TabButton
+            isSelected={selectedTopic==="jsx"} onClick={()=>{handleSelect("jsx")}}>JSX</TabButton>
+          <TabButton
+            isSelected={selectedTopic==="props"} onClick={()=>{handleSelect("props")}}>Props</TabButton>
+          <TabButton
+            isSelected={selectedTopic==="state"} onClick={()=>{handleSelect("state")}}>State</TabButton></>
+          }>
+          {tabContent}
+          </Tabs>
 
           {/* Display content based on the selected topic */}
-
-          {/* 1.Use truthy falsy to display content */}
-          {/* {selectedTopic? (
-            <div id="tab-content">
-            <h3>{EXAMPLES[selectedTopic].title}</h3>
-            <p>{EXAMPLES[selectedTopic].desc}</p>
-            <pre>
-              <code>
-              {EXAMPLES[selectedTopic].code}
-              </code>
-            </pre>
-          </div>
-          ) :
-          <p>Please click the button to select a topic</p>
-          } */}
-
-          {/* 2.Use ternary to display content */}
-          {/* {!selectedTopic && <p>Please click the button to select a topic</p>}
-          {selectedTopic && (
-            <div id="tab-content">
-            <h3>{EXAMPLES[selectedTopic].title}</h3>
-            <p>{EXAMPLES[selectedTopic].desc}</p>
-            <pre>
-              <code>
-              {EXAMPLES[selectedTopic].code}
-              </code>
-            </pre>
-          </div>
-          )} */}
-
           {/* 3.declare separate variables */}
-          {tabContent}
+          
         </Section>
       </main>
+      
     </>
   );
 }
