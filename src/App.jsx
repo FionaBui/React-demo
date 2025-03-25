@@ -56,13 +56,13 @@ function App() {
           <menu>
             {/* Each button calls the handleSelect function with the corresponding topic */}
             <TabButton
-              isSelected={selectedTopic==="components"} onSelect={()=>{handleSelect("components")}}>Components</TabButton>
+              isSelected={selectedTopic==="components"} onClick={()=>{handleSelect("components")}}>Components</TabButton>
             <TabButton
-              isSelected={selectedTopic==="jsx"} onSelect={()=>{handleSelect("jsx")}}>JSX</TabButton>
+              isSelected={selectedTopic==="jsx"} onClick={()=>{handleSelect("jsx")}}>JSX</TabButton>
             <TabButton
-              isSelected={selectedTopic==="props"} onSelect={()=>{handleSelect("props")}}>Props</TabButton>
+              isSelected={selectedTopic==="props"} onClick={()=>{handleSelect("props")}}>Props</TabButton>
             <TabButton
-              isSelected={selectedTopic==="state"} onSelect={()=>{handleSelect("state")}}>State</TabButton>
+              isSelected={selectedTopic==="state"} onClick={()=>{handleSelect("state")}}>State</TabButton>
           </menu>
 
           {/* Display content based on the selected topic */}
